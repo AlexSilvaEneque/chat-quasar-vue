@@ -9,7 +9,7 @@
 
   watchEffect((onCleanup) => {
     if (userGoogle.value) {
-      const q = query(collection(db, 'chats'), orderBy('time', 'desc'), limit(10))
+      const q = query(collection(db, 'chats'), orderBy('time'))
       const unsubcribe = onSnapshot(q, async (snapshot) => {
           snapshot.docChanges().forEach((change) => {
             if (change.type === "added") {
